@@ -19,6 +19,13 @@ h1 {
   font-weight: 900;
   }
 
+h2 {
+  font-family: "Montserrat";
+  font-size: 3rem;
+  line-height: 1.5;
+  font-weight: bold;
+}
+
 h3 {
   font-family: "Montserrat";
   font-weight: bold;
@@ -81,4 +88,34 @@ padding: 0 18px;
 
 .icon:hover {
   color: #ff4c68;
+}
+
+
+/* Testimonials */
+
+#testimonials {
+  text-align: center;
+  background-color: #ef8172;
+  color: #fff;
+}
+
+.testimonial-image {
+  width: 10%;
+  border-radius: 100%;
+  margin: 20px;
+}
+
+.carousel-item {
+  padding: 7% 15%;
+}
+
+#press {
+  background-color: #ef8172;
+  text-align: center;
+  padding-bottom: 3%;
+}
+
+.press-logo {
+  width: 15%;
+  margin: 20px 20px 50px;
 }
