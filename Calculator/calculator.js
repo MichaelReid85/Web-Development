@@ -24,7 +24,7 @@ var result = num1 + num2;
 // BMI Calculator
 
 app.get("/bmicalculator", function(req, res) {
-  res.sendFile(__dirname + "bmiCalculator.html");
+  res.sendFile(__dirname + "/bmiCalculator.html");
 });
 
 app.post("/bmicalculator", function(req, res) {
