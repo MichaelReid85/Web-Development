@@ -41,7 +41,7 @@ app.post("/", function(req, res) {
 
   const options = {
     method: "POST",
-    auth: "mike1:2ce83825b7e2ec6a1fcb1a8c3a047515-us21 "
+    auth: "mike1:62c0ae9dc7aaf13f52c7d4bec6b91bbe-us21"
   }
 
   const request = https.request(url, options, function(response) {
@@ -72,7 +72,7 @@ app.listen(process.env.PORT || 3000, function() {
 })
 
 // mailchimp API key
-// 2ce83825b7e2ec6a1fcb1a8c3a047515-us21
+// 62c0ae9dc7aaf13f52c7d4bec6b91bbe-us21
 
 // list ID
 //  d0316689e5
