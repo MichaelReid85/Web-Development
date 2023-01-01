@@ -27,7 +27,12 @@ const postSchema = {
 
 const Post = Mongoose.model("Post", postSchema);
 
+const post = new Post ({
+  title: req.body.postTitle,
+  content: req.body.postBody
+});
 
+post.save()
 
 
 
