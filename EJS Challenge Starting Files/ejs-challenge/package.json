@@ -11,8 +11,9 @@
     "body-parser": "^1.18.3",
     "ejs": "^2.7.4",
     "express": "^4.18.2",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.21",
     "mongoose": "^6.8.2"
   },
+  "devDependencies": {},
   "description": ""
 }
