@@ -25,19 +25,20 @@ const itemsSchema = {
 
 const Item = mongoose.model("Item", itemsSchema);
 
-const playWithKids = new Item({
-  name: "Play with Kids"
+
+const item1 = new Item({
+  name: "Take care of kids"
 });
 
-const cleanHouse = new Item({
-  name: "Clean the House"
+const item2 = new Item({
+  name: "Make food"
 });
 
-const makeDinner = new Item({
-  name: "Make Dinner"
+const item3 = new Item({
+  name: "Clean house"
 });
 
-const defaultItems = [playWithKids, cleanHouse, makeDinner];
+const defaultItems = [item1, item2, item3];
 
 const listSchema = {
   name: String,
@@ -56,7 +57,7 @@ app.get("/", function (req, res) {
         if (err) {
           console.log(err);
         } else {
-          console.log("Items added succesfully.");
+          console.log("Successfully savevd default items to DB.");
         }
       });
       res.redirect("/");
@@ -65,7 +66,6 @@ app.get("/", function (req, res) {
         listTitle: "Today",
         newListItems: foundItems
       });
-
     }
   });
 
@@ -79,27 +79,27 @@ app.get("/:customListName", function (req, res) {
   }, function (err, foundList) {
     if (!err) {
       if (!foundList) {
+        //Create a new list
         const list = new List({
           name: customListName,
           items: defaultItems
         });
-
         list.save();
         res.redirect("/" + customListName);
-
       } else {
+        //Show an existing list
 
         res.render("list", {
           listTitle: foundList.name,
-          newListItems: foundList.itmes
+          newListItems: foundList.items
         });
       }
     }
   });
 
 
-});
 
+});
 
 app.post("/", function (req, res) {
 
@@ -136,8 +136,16 @@ app.post("/delete", function (req, res) {
       }
     });
   } else {
-    List.findOneAndUpdate({name: listName}, {$pull: {items: {_id: checkedItemId}}}, function(err, foundList){
-      if (!err){
+    List.findOneAndUpdate({
+      name: listName
+    }, {
+      $pull: {
+        items: {
+          _id: checkedItemId
+        }
+      }
+    }, function (err, foundList) {
+      if (!err) {
         res.redirect("/" + listName);
       }
     });
@@ -146,11 +154,15 @@ app.post("/delete", function (req, res) {
 
 });
 
-
 app.get("/about", function (req, res) {
   res.render("about");
 });
 
-app.listen(3000, function () {
-  console.log("Server started on port 3000");
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+
+app.listen(port, function () {
+  console.log("Server has started succesfully");
 });
