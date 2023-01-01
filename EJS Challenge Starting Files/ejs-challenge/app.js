@@ -22,10 +22,10 @@ app.use(express.static("public"));
 
 const postSchema = {
   title: String,
-  content: toString
+  content: String
 };
 
-const Post = Mongoose.model("Post", postSchema);
+const Post = mongoose.model("Post", postSchema);
 
 const post = new Post ({
   title: req.body.postTitle,
